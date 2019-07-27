@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Hunter Young">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="数据库范式">
+  <meta property="og:description" content="Focus on myself.">
+  <meta property="og:site_name" content="Stay Young">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Stay Young" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Stay Young</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">数据库范式</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/yanghong">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:h@0920er.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Hunter Young</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-28</span>
+            <span class="time">00:14:20</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/DataBase/">DataBase</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/DataBase-Design/">#DataBase Design</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在设计数据库时，我们要遵守一定的规范，以达到设计出合理的数据结构的目的。而这些不同的规范，就叫做范式。各种范式呈渐进的关系，等级越高的范式，数据库冗余越小。<br>目前关系型数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式（4NF）和第五范式（5NF，又称完美范式）。</p>
+<h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><p>第一范式是对属性的原子性：确保每一列属性都是不可再分的属性。<br><img src="https://img-blog.csdnimg.cn/20190728000637800.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190728000652493.png" alt="在这里插入图片描述"><br>图一种adress_tel字段属性保存了地址和电话，明显可以拆成两个字段分别保存这两个信息，而且更加清晰明了。所以，第一范式就是保证每个字段代表的是一种属性，而不是混杂在一起。</p>
+<h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><p>第二范式是记录的唯一性：在满足第一范式1NF后，要求表中的所有列，都必须依赖于主键，而不能有任何一列与主键没有关系，也就是一个表只描述一件事情，每个表都有主键。<br>下表的解释：order_id是订单id,room_id房间id，user_id是用户id,user_name是用户名字，user_phone是用户手机号，这是用户订房的一个场景。<br><img src="https://img-blog.csdnimg.cn/20190728000705243.png" alt="在这里插入图片描述"><br>这个表里虽然有主键order_id,但是room_num和user_name与主键没有关系。他们属于房间和用户的信息，所以破坏了第二范式。<br><img src="https://img-blog.csdnimg.cn/20190728000715525.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190728000727529.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190728000736652.png" alt="在这里插入图片描述"><br>我们根据上面的例子可以看出，如果按照图三所设置的表，会出现很多重复数据，一个人定一个房间他的信息就会重复一次，造成数据的冗余，我们可以把它拆分成订房关系表和用户信息表以及房间信息表，这样就会便于维护数据，一个表只做一件事。订房关系表只维护订单信息，不用关心用户和房间的具体信息，用户信息表只维护用户的信息，不涉及订单和房间的具体信息。房间表只维护房间表，不涉及用户和订单的具体信息。</p>
+<p>不符合2NF会带来：数据冗余、更新异常、插入异常、删除异常问题</p>
+<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p>必须先满足第二范式（2NF），要求表与表之间的关系要使用主键进行关联。<br>下表的解释：order_id是订单id,room_id房间id，user_id是用户id,user_name是用户名字，user_phone是用户手机号，这是用户订房的一个场景。<br><img src="https://img-blog.csdnimg.cn/20190728000748817.png" alt="在这里插入图片描述"><br>上图的订单信息和房间信息以及用户信息之间的关联就没有全部用主键进行关联，用户信息用了用户name，所以不符合第三范式。<br><img src="https://img-blog.csdnimg.cn/20190728000758473.png" alt="在这里插入图片描述"></p>
+<p>高度总结，第一范式就是数据库的字段不能出现冗余，第二范式每个表都要有主键，且表里的字段要和主键有直接关系。第三范式要求表与表之间的关联要通过主键去关联。<br>BCNF（修正的第三范式）<br>下表的解释：storehouse_id是仓库id,product_id是产品id,user_id是仓库管理员id,quantity是仓库所存产品的数量，一个管理员只能管理一个仓库，一个仓库可以存储多种物品。<br><img src="https://img-blog.csdnimg.cn/2019072800081198.png" alt="在这里插入图片描述"><br>上图是符合3NF的，最后一个数量是这个仓库存这个产品的数量不是这个产品有多少数量。 但这样会存在问题，当仓库清空后，“所有存储物品id”和“数量”信息被删除的同时，“仓库id”和“管理员id”信息也被删除。<br>所以为了消除这种情况，这种仓库管理表里面不建议牵连到多张表，关联表里只涉及到两张表的时候就符合BCNF。<br><img src="https://img-blog.csdnimg.cn/20190728000835275.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190728000845894.png" alt="在这里插入图片描述"></p>
+<p>这样上面提到的情况就不会把仓库和管理员之间的联系删除到了。</p>
+<h2 id="第四范式"><a href="#第四范式" class="headerlink" title="第四范式"></a>第四范式</h2><p>处理相互独立的多值情况。<br>有一个用户联系方式表，user_id是用户的id,phone是移动电话,call是座机。<br><img src="https://img-blog.csdnimg.cn/20190728000905602.png" alt="在这里插入图片描述"><br>上表的设计符合3NF，但是如果出现一个用户有两个移动电话和两个座机，这种情况就违反了第四范式。第四范式当一个表中的非主属性互相独立时（3NF），这些非主属性不该存在相互影响的关系，若有多值就违反了第四范式。<br><img src="https://img-blog.csdnimg.cn/20190728000916567.png" alt="在这里插入图片描述"><br>如果我想放弃第一个座机和第二个移动电话，处理数据就很麻烦，所以这张表设计成这样就可以解决这个问题啦<br><img src="https://img-blog.csdnimg.cn/20190728000928773.png" alt="在这里插入图片描述"></p>
+<h2 id="第五范式"><a href="#第五范式" class="headerlink" title="第五范式"></a>第五范式</h2><p>处理相互依赖多值的情况，是最终范式。第五范式有两个要求：<br>必须满足第四范式<br>表必须可以分解成为较小的表，除非那些表在逻辑上拥有与原始表相同的主键。<br>举个例子：销售信息表，sale_person是销售人员,vendor是供货商,product是商品如果我们想维护好上面关系去设计表，符合第五范式的设计方式就是下面的<br><img src="https://img-blog.csdnimg.cn/20190728000940926.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190728000948784.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190728000957137.png" alt="在这里插入图片描述"></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
