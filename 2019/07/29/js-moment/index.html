@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Hunter Young">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="js-moment">
+  <meta property="og:description" content="Focus on myself.">
+  <meta property="og:site_name" content="Stay Young">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Stay Young" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Stay Young</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">js-moment</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/yanghong">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:h@0920er.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Hunter Young</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-29</span>
+            <span class="time">14:35:38</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/javascript/">javascript</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/monent-component/">#monent component</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="Moment-js常见用法总结"><a href="#Moment-js常见用法总结" class="headerlink" title="Moment.js常见用法总结"></a>Moment.js常见用法总结</h1><p>@[toc]</p>
+<h2 id="Moment-js常见用法总结-1"><a href="#Moment-js常见用法总结-1" class="headerlink" title="Moment.js常见用法总结"></a>Moment.js常见用法总结</h2><p>Moment.js是一个轻量级的JavaScript时间库，它方便了日常开发中对时间的操作，提高了开发效率。<br>​日常开发中，通常会对时间进行下面这几个操作：比如获取时间，设置时间，格式化时间，比较时间等等。接下来，我将按照这些操作对Moment.js中的Doc进行整理分类，方便学习和日后的查阅。</p>
+<h2 id="获取时间"><a href="#获取时间" class="headerlink" title="获取时间"></a>获取时间</h2><h3 id="Start-of-Time"><a href="#Start-of-Time" class="headerlink" title="Start of Time"></a>Start of Time</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(<span class="built_in">String</span>)</span><br></pre></td></tr></table></figure>
+<p>获取今天0时0分0秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(<span class="string">'day'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取本周第一天(周日)0时0分0秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(<span class="string">'week'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取本周周一0时0分0秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(<span class="string">'isoWeek'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取当前月第一天0时0分0秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(<span class="string">'month'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="End-of-Time"><a href="#End-of-Time" class="headerlink" title="End of Time"></a>End of Time</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(<span class="built_in">String</span>)</span><br></pre></td></tr></table></figure>
+<p>获取今天23时59分59秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(<span class="string">'day'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取本周最后一天(周六)23时59分59秒<br>获取本周周日23时59分59秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(<span class="string">'isoWeek'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取当前月最后一天23时59分59秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().endOf(<span class="string">'month'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>Days in Month<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().daysInMonth()</span><br></pre></td></tr></table></figure></p>
+<p>获取当前月的总天数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().daysInMonth()</span><br></pre></td></tr></table></figure></p>
+<h3 id="Timestamp"><a href="#Timestamp" class="headerlink" title="Timestamp"></a>Timestamp</h3><p>获取时间戳(以秒为单位)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'X'</span>) <span class="comment">// 返回值为字符串类型</span></span><br><span class="line">moment().unix() <span class="comment">// 返回值为数值型</span></span><br></pre></td></tr></table></figure></p>
+<p>获取时间戳(以毫秒为单位)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'x'</span>) <span class="comment">// 返回值为字符串类型</span></span><br><span class="line">moment().valueOf() <span class="comment">// 返回值为数值型</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Get-Time"><a href="#Get-Time" class="headerlink" title="Get Time"></a>Get Time</h3><p>获取年份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().year()</span><br><span class="line">moment().get(<span class="string">'year'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取月份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().month() (<span class="number">0</span>~<span class="number">11</span>, <span class="number">0</span>: January, <span class="number">11</span>: December)</span><br><span class="line">moment().get(<span class="string">'month'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取一个月中的某一天<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().date()</span><br><span class="line">moment().get(<span class="string">'date'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取一个星期中的某一天<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">moment().day() (<span class="number">0</span>~<span class="number">6</span>, <span class="number">0</span>: Sunday, <span class="number">6</span>: Saturday)</span><br><span class="line">moment().weekday() (<span class="number">0</span>~<span class="number">6</span>, <span class="number">0</span>: Sunday, <span class="number">6</span>: Saturday)</span><br><span class="line">moment().isoWeekday() (<span class="number">1</span>~<span class="number">7</span>, <span class="number">1</span>: Monday, <span class="number">7</span>: Sunday)</span><br><span class="line">moment().get(<span class="string">'day'</span>)</span><br><span class="line">mment().get(<span class="string">'weekday'</span>)</span><br><span class="line">moment().get(<span class="string">'isoWeekday'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取小时<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().hours()</span><br><span class="line">moment().get(<span class="string">'hours'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取分钟<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().minutes()</span><br><span class="line">moment().get(<span class="string">'minutes'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取秒数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().seconds()</span><br><span class="line">moment().get(<span class="string">'seconds'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>获取当前的年月日时分秒<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().toArray() <span class="comment">// [years, months, date, hours, minutes, seconds, milliseconds]</span></span><br><span class="line">moment().toObject() <span class="comment">// &#123;years: xxxx, months: x, date: xx ...&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="设置时间"><a href="#设置时间" class="headerlink" title="设置时间"></a>设置时间</h2><h3 id="Set-Time"><a href="#Set-Time" class="headerlink" title="Set Time"></a>Set Time</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">moment().year(<span class="built_in">Number</span>), moment().month(<span class="built_in">Number</span>)...</span><br><span class="line">moment().set(<span class="built_in">String</span>, Int)</span><br><span class="line">moment().set(<span class="built_in">Object</span>)</span><br></pre></td></tr></table></figure>
+<p>设置年份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">moment().year(<span class="number">2019</span>)</span><br><span class="line">moment().set(<span class="string">'year'</span>, <span class="number">2019</span>)</span><br><span class="line">moment().set(&#123;<span class="attr">year</span>: <span class="number">2019</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>设置月份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().month(<span class="number">11</span>) (<span class="number">0</span>~<span class="number">11</span>, <span class="number">0</span>: January, <span class="number">11</span>: December)</span><br><span class="line">moment().set(<span class="string">'month'</span>, <span class="number">11</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置某个月中的某一天<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().date(<span class="number">15</span>)</span><br><span class="line">moment().set(<span class="string">'date'</span>, <span class="number">15</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置某个星期中的某一天<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">moment().weekday(<span class="number">0</span>) <span class="comment">// 设置日期为本周第一天（周日）</span></span><br><span class="line">moment().isoWeekday(<span class="number">1</span>) <span class="comment">// 设置日期为本周周一</span></span><br><span class="line">moment().set(<span class="string">'weekday'</span>, <span class="number">0</span>)</span><br><span class="line">moment().set(<span class="string">'isoWeekday'</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置小时<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().hours(<span class="number">12</span>)</span><br><span class="line">moment().set(<span class="string">'hours'</span>, <span class="number">12</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置分钟<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().minutes(<span class="number">30</span>)</span><br><span class="line">moment().set(<span class="string">'minutes'</span>, <span class="number">30</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置秒数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().seconds(<span class="number">30</span>)</span><br><span class="line">moment().set(<span class="string">'seconds'</span>, <span class="number">30</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Add-Time"><a href="#Add-Time" class="headerlink" title="Add Time"></a>Add Time</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="built_in">Number</span>, <span class="built_in">String</span>)</span><br><span class="line">moment().add(<span class="built_in">Object</span>)</span><br></pre></td></tr></table></figure>
+<p>设置年份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">1</span>, <span class="string">'years'</span>)</span><br><span class="line">moment().add(&#123;<span class="attr">years</span>: <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>设置月份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">1</span>, <span class="string">'months'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置日期<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">1</span>, <span class="string">'days'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置星期<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">1</span>, <span class="string">'weeks'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置小时<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">1</span>, <span class="string">'hours'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置分钟<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">1</span>, <span class="string">'minutes'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置秒数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">1</span>, <span class="string">'seconds'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Subtract-Time"><a href="#Subtract-Time" class="headerlink" title="Subtract Time"></a>Subtract Time</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="built_in">Number</span>, <span class="built_in">String</span>)</span><br><span class="line">moment().subtract(<span class="built_in">Object</span>)</span><br></pre></td></tr></table></figure>
+<p>设置年份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="number">1</span>, <span class="string">'years'</span>)</span><br><span class="line">moment().subtract(&#123;<span class="attr">years</span>: <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>设置月份<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="number">1</span>, <span class="string">'months'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置日期<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="number">1</span>, <span class="string">'days'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置星期<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="number">1</span>, <span class="string">'weeks'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置小时<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="number">1</span>, <span class="string">'hours'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置分钟<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="number">1</span>, <span class="string">'minutes'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>设置秒数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().subtract(<span class="number">1</span>, <span class="string">'seconds'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="格式化时间"><a href="#格式化时间" class="headerlink" title="格式化时间"></a>格式化时间</h2><h3 id="Format-Time"><a href="#Format-Time" class="headerlink" title="Format Time"></a>Format Time</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().format()</span><br><span class="line">moment().format(<span class="built_in">String</span>)</span><br></pre></td></tr></table></figure>
+<p>格式化年月日： ‘xxxx年xx月xx日’<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'YYYY年MM月DD日'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>格式化年月日： ‘xxxx-xx-xx’<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'YYYY-MM-DD'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>格式化时分秒(24小时制)： ‘xx时xx分xx秒’<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'HH时mm分ss秒'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>格式化时分秒(12小时制)：’xx:xx:xx am/pm’<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'hh:mm:ss a'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>格式化时间戳(以秒为单位)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'X'</span>) <span class="comment">// 返回值为字符串类型</span></span><br></pre></td></tr></table></figure></p>
+<p>格式化时间戳(以毫秒为单位)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'x'</span>) <span class="comment">// 返回值为字符串类型</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="比较时间"><a href="#比较时间" class="headerlink" title="比较时间"></a>比较时间</h2><h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().diff(Moment|<span class="built_in">String</span>|<span class="built_in">Number</span>|<span class="built_in">Date</span>|<span class="built_in">Array</span>)</span><br></pre></td></tr></table></figure>
+<p>获取两个日期之间的时间差<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> start_date = moment().subtract(<span class="number">1</span>, <span class="string">'weeks'</span>)</span><br><span class="line"><span class="keyword">let</span> end_date = moment()</span><br><span class="line"></span><br><span class="line">end_date.diff(start_date) <span class="comment">// 返回毫秒数</span></span><br><span class="line"></span><br><span class="line">end_date.diff(start_date, <span class="string">'months'</span>) <span class="comment">// 0</span></span><br><span class="line">end_date.diff(start_date, <span class="string">'weeks'</span>) <span class="comment">// 1</span></span><br><span class="line">end_date.diff(start_date, <span class="string">'days'</span>) <span class="comment">// 7</span></span><br><span class="line">start_date.diff(end_date, <span class="string">'days'</span>) <span class="comment">// -7</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="转化为JavaScript原生Date对象"><a href="#转化为JavaScript原生Date对象" class="headerlink" title="转化为JavaScript原生Date对象"></a>转化为JavaScript原生Date对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().toDate()</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(moment())</span><br></pre></td></tr></table></figure>
+<p>将Moment时间转换为JavaScript原生Date对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> m = moment()</span><br><span class="line"><span class="keyword">let</span> nativeDate1 = m.toDate()</span><br><span class="line"><span class="keyword">let</span> nativeDate2 = <span class="keyword">new</span> <span class="built_in">Date</span>(m)</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>(nativeDate1) === <span class="built_in">String</span>(nativeDate2) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        </p><p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
