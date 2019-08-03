@@ -8,7 +8,7 @@
   <meta name="description" content>
   <meta name="author" content="Hunter Young">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="netfix culture cookbook">
+  <meta property="og:title" content="mybatis中井号和doller的区别">
   <meta property="og:description" content="Focus on myself.">
   <meta property="og:site_name" content="Stay Young">
   <meta property="og:type" content="article">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">netfix culture cookbook</p>
+          <p class="title">mybatis中井号和doller的区别</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,9 +99,15 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2019-05-23</span>
-            <span class="time">15:49:30</span>
+            <span class="date">2019-08-03</span>
+            <span class="time">15:49:29</span>
           </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/DataBase/">DataBase</a>
+</span>
           
         </div>
         <!-- Tags -->
@@ -109,21 +115,24 @@
           <div class="post-tags text-muted">
             Tags: 
 
-<a class="tag" href="/tags/management/">#management</a>
+<a class="tag" href="/tags/mybatis/">#mybatis</a>
 
 
           </div>
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <h2 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h2><p>永远不要低估问题和想法的价值。</p>
-<p>双向沟通至关重要。员工必须能够提出问题、批评和其它意见。在理想情况下，员工应该对上至CEO在内的所有管理者提问。</p>
-<p>反馈通常会带来建设性的谈话，并真正起到了消除隔阂的作用。</p>
-<p>我们会在团队会议上做一个名叫“开始、停止和继续”的联系。在这个练习中，每个人都告诉一名同事一件他应该开始做的事、一件他应该停止做的事，以及一件他做得非常好且应该继续保持的事。</p>
-<p>学会给出受欢迎的批评。</p>
-<p>不给严格反馈，会给管理者带来不必要的压力，他们不得不掩盖事实并欺骗员工，进而导致员工丧失做出改进的机会。</p>
-<p>当你仔细反思别人的话时，你会从他的视角来看问题，你就学会了如何做出改进。这种直截了当真的很有帮助。</p>
-<p>商业领域最具有价值的洞见之一，就是礼貌而诚实地告诉员工真相并非一件残忍之事。</p>
+          <h1 id="最终执行的sql不同"><a href="#最终执行的sql不同" class="headerlink" title="最终执行的sql不同"></a>最终执行的sql不同</h1><p>当传入的参数name=’123’的时候:#{name}解析之后的SQL中条件name=‘123’参数有单引号，但是${name}SQL中的参数name=123，没有单引号。</p>
+<h2 id="select-from-user-where-name-name"><a href="#select-from-user-where-name-name" class="headerlink" title="select * from user where name = #{name}"></a>select * from user where name = #{name}</h2><p>最终执行的SQL为:select * from user where name = ‘123’</p>
+<h2 id="select-from-user-where-name-name-1"><a href="#select-from-user-where-name-name-1" class="headerlink" title="select * from user where name = ${name}"></a>select * from user where name = ${name}</h2><p>最终执行的SQL为:select * from user where name =123,这个SQL在执行的时候会报错的,为了避免报错,需要修改为:name=’${name}’,需要加上单引号才可以。</p>
+<h1 id="动态sql解析阶段的解析的不同"><a href="#动态sql解析阶段的解析的不同" class="headerlink" title="动态sql解析阶段的解析的不同"></a>动态sql解析阶段的解析的不同</h1><p>mybatis的强大特性：动态sql，也是它优于其他ORM框架的一个重要原因。mybatis在对sql语句进行预编译之前，会对sql进行动态解析，解析为一个BoundSql对象，也是在此处对动态sql进行处理的。在动态sql解析阶段，#{}和${}会有不同的表现。select * from user where name = #{name}#{}在动态解析的时候，会解析成一个参数标记符。</p>
+<h2 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a>动态SQL</h2><p>mybatis在对sql语句进行预编译之前，会对sql进行动态解析，解析为一个BoundSql对象。​</p>
+<h2 id><a href="#" class="headerlink" title="#{}"></a>#{}</h2><p>#{}在动态解析的时候，会解析成一个参数标记符。select * from user where name = ? ;​</p>
+<h2 id="￥"><a href="#￥" class="headerlink" title="￥{}"></a>￥{}</h2><p>￥{}在动态解析的时候，会将我们传入的参数做String字符串填充到我们的语句中，会变成下面的 ：select * from from user where name = data;​</p>
+<h2 id="防止sql注入"><a href="#防止sql注入" class="headerlink" title="防止sql注入"></a>防止sql注入</h2><p>#{}方式能够很大程度上防止sql注入（使用占位符，最终的参数会有单引号）<br>${}方式无法防止sql注入（直接解析了，没有单引号，这样的话可以直接写SQL，比如select <em> from ${tableName}, 当tableName的值为：’user; delete from user’, 这样最终解析的sql为：select </em> from user; delete from user,这个就会有sql注入的问题）</p>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/CocoaWang/article/details/84925219" target="_blank" rel="noopener">https://blog.csdn.net/CocoaWang/article/details/84925219</a></p>
+</blockquote>
 
         </div>
       </div>
